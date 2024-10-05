@@ -1,0 +1,43 @@
+.no-rounded {
+  border-radius: 0 !important; /* Remove rounded corners */
+}
+
+.heading {
+  font-size: 1.5rem; /* Adjust the font size as needed */
+  font-weight: bold; /* Make the heading bold */
+  text-align: left; /* Align text to the left */
+  margin-bottom: 0.5rem; /* Add some space below the heading */
+  position: relative; /* For the underline effect */
+}
+
+.heading::after {
+  content: ""; /* Create a pseudo-element for the underline */
+  display: block; /* Display as block */
+  width: 100%; /* Adjust the width of the underline */
+  height: 2px; /* Height of the underline */
+  background-color: #007bff; /* Color of the underline */
+  margin-top: 0.3rem; /* Space between heading and underline */
+  border-radius: 5px; /* Optional: rounded ends for the underline */
+}
+
+.border-animation {
+  border: 2px solid transparent; /* Start with transparent border */
+  transition: border-color 0.3s ease; /* Smooth transition for border color */
+}
+
+.border-animation:hover {
+  border-color: #007bff; /* Change to your primary color on hover */
+}
+
+/* Optional: Add a box-shadow effect */
+.card {
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+}
+
+/* Optional: Add custom background color for card body */
+.card-body {
+  background-color: #f8f9fc; /* A light background for the card body */
+}
+.button-spacing {
+  margin-right: 10px; /* Adjust the value as needed */
+}
