@@ -5,7 +5,7 @@ import QuoteTable from "./QuoteTable";
 import Sidebar from "../../components/Navigation/Sidebar";
 import Topbar from "../../components/Navigation/Topbar";
 
-const QuoteMainApp = () => {
+const InsuranceMainForm = () => {
     return (
         <>
             <div id="wrapper">
@@ -38,4 +38,4 @@ const QuoteMainApp = () => {
     );
 
 };
-export default QuoteMainApp;
+export default InsuranceMainForm;

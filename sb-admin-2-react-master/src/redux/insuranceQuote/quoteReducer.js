@@ -27,6 +27,20 @@ export const quoteReducer = (state = initialState, action) => {
             return { ...state, loading: false, error: action.payload };
         case 'RETREIVE_QUOTE_COMPLETED':
             return { ...state, loading: false, error: action.payload };
+        case 'CREATE_USER_LOGIN_STARTED':
+            return {
+                ...state,
+                loading: true,
+                error: action.payload
+            };
+        case 'CREATE_USER_LOGIN_SUCCESS':
+            return {
+                ...state,
+                loading: false,
+                error: action.payload
+            };
+
+
         default:
             return state;
     }

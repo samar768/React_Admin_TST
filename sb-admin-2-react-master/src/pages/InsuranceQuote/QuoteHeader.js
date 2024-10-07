@@ -12,14 +12,14 @@ const QuoteHeader = () => {
     return (
         <Container className="my-5">
             <Card className="shadow-lg border-0">
-                <Card.Body>
+                <Card.Body className="d-flex flex-column">
                     <div className="text-left mb-4">
                         <h2 className="heading">Quote Risk</h2>
                     </div>
                     <div className="text-left mb-4">
                         <h2 className="heading">Quote Header</h2>
                     </div>
-                    <Form className="user">
+                    <Form className="user flex-grow-1">
                         <Row>
                             <Col md={ 12 } className="mb-3">
                                 <ReusableInput
@@ -27,7 +27,7 @@ const QuoteHeader = () => {
                                     id="clientName"
                                     type="text"
                                     placeholder="Client name"
-                                    className="w-100"  // Ensures the input spans full width
+                                    className="form-control" // Use Bootstrap's form-control for consistent styling
                                 />
                             </Col>
                         </Row>
@@ -38,7 +38,7 @@ const QuoteHeader = () => {
                                     id="clientAddress"
                                     type="text"
                                     placeholder="Address details"
-                                    className="w-100"  // Ensures the input spans full width
+                                    className="form-control" // Use Bootstrap's form-control for consistent styling
                                 />
                             </Col>
                         </Row>
