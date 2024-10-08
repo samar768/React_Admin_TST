@@ -13,7 +13,8 @@ import thunk from 'redux-thunk';
 
 //Redux
 import { Provider } from 'react-redux';
-import { Store } from './redux/store';
+import Store from './redux/store';
+
 
 // // Create store and apply middleware (redux-thunk in this case)
 // const store = configureStore({

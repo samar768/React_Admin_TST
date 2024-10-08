@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const SignUp = () => {
+const SignUp = (props) => {
   const navigate = useNavigate();
 
   // Set the background class on mount
@@ -10,12 +10,43 @@ const SignUp = () => {
     document.getElementById('body').className = 'bg-gradient-primary';
   }, []);
 
-  // Handle register button click
+  // Local state to manage form inputs
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    repeatPassword: '',
+  });
+
+  // Handle input change for all fields
+  const handleInputChange = (e) => {
+    const { id, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [id]: value,
+    }));
+  };
+
+  // Handle form submission
   const handleRegister = (event) => {
     event.preventDefault();
-    // Simulate successful registration logic
-    console.log('User registered');
-    navigate('/dashboard'); // Navigate to dashboard
+
+    // Validate form inputs (optional, for example check if passwords match)
+    if (formData.password !== formData.repeatPassword) {
+      alert('Passwords do not match');
+      return;
+    }
+
+    // Dispatch the Redux action with formData
+    props.signUpUser(formData)
+      .then(() => {
+        console.log('User registered');
+        navigate('/dashboard'); // Navigate to dashboard after registration
+      })
+      .catch((error) => {
+        console.error('Registration error:', error);
+      });
   };
 
   return (
@@ -40,7 +71,9 @@ const SignUp = () => {
                           <input
                             type="text"
                             className="form-control form-control-user"
-                            id="exampleFirstName"
+                            id="firstName"
+                            value={ formData.firstName }
+                            onChange={ handleInputChange }
                             placeholder="First Name"
                           />
                         </div>
@@ -48,7 +81,9 @@ const SignUp = () => {
                           <input
                             type="text"
                             className="form-control form-control-user"
-                            id="exampleLastName"
+                            id="lastName"
+                            value={ formData.lastName }
+                            onChange={ handleInputChange }
                             placeholder="Last Name"
                           />
                         </div>
@@ -57,7 +92,9 @@ const SignUp = () => {
                         <input
                           type="email"
                           className="form-control form-control-user"
-                          id="exampleInputEmail"
+                          id="email"
+                          value={ formData.email }
+                          onChange={ handleInputChange }
                           placeholder="Email Address"
                         />
                       </div>
@@ -66,7 +103,9 @@ const SignUp = () => {
                           <input
                             type="password"
                             className="form-control form-control-user"
-                            id="exampleInputPassword"
+                            id="password"
+                            value={ formData.password }
+                            onChange={ handleInputChange }
                             placeholder="Password"
                           />
                         </div>
@@ -74,7 +113,9 @@ const SignUp = () => {
                           <input
                             type="password"
                             className="form-control form-control-user"
-                            id="exampleRepeatPassword"
+                            id="repeatPassword"
+                            value={ formData.repeatPassword }
+                            onChange={ handleInputChange }
                             placeholder="Repeat Password"
                           />
                         </div>

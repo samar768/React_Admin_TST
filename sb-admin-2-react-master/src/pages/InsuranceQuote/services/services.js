@@ -20,7 +20,7 @@ export async function fetchInsuranceQuote() {
 
 // persist quotedata  
 
-export async function fetchInsuranceQuote() {
+export async function persistInsuranceQuote() {
 
 }
 

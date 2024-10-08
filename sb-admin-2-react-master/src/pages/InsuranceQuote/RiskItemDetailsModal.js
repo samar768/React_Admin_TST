@@ -2,6 +2,7 @@ import React from "react";
 import $ from "jquery";
 import ReusableInput from "./ReusableInput";
 import DropdownList from "../../components/DropdownList";
+import ReusableNumericInput from "./ReusableNumericInput";
 
 // Static Modal Component
 const RiskItemDetailsModal = ({ show, handleClose, onSubmit }) => {
@@ -56,45 +57,69 @@ const RiskItemDetailsModal = ({ show, handleClose, onSubmit }) => {
                                 </div>
                             </div>
                             <div className="form-row">
+
                                 <div className="col-md-6">
-                                    <ReusableInput
+                                    <ReusableNumericInput
                                         label="Year of Manufacture"
                                         id="YEAR"
-                                        type="text"
-                                        placeholder="Year of manufacture"
+                                        type="text"  // Can use "number" too
+                                        placeholder="Enter your Year of Manufacture"
                                         className="w-100"
+                                        numeric={ true }  // Enable numeric validation
+                                        currencySymbol=""
+                                        maxLength={ 4 }  // Maximum length of the entire input, including decimals
+                                        decimalPlaces={ 0 }  // Restrict to 2 decimal places
                                     />
                                 </div>
+
                                 <div className="col-md-6">
-                                    <ReusableInput
+                                    <ReusableNumericInput
                                         label="Sum Insured"
-                                        id="SI"
-                                        type="text"
-                                        placeholder="Sum Insured"
+                                        id="SumInsured"
+                                        type="text"  // Can use "number" too
+                                        placeholder="Enter your Sum insured"
                                         className="w-100"
+                                        numeric={ true }  // Enable numeric validation
+                                        currencySymbol="R"
+                                        maxLength={ 10 }  // Maximum length of the entire input, including decimals
+                                        decimalPlaces={ 2 }  // Restrict to 2 decimal places
                                     />
                                 </div>
                             </div>
                             <div className="form-row">
                                 <div className="col-md-6">
-                                    <ReusableInput
+                                    <ReusableNumericInput
                                         label="Rate"
                                         id="RATE"
-                                        type="text"
-                                        placeholder="Rate"
+                                        type="text"  // Can use "number" too
+                                        placeholder="Enter your Rate"
                                         className="w-100"
+                                        numeric={ true }  // Enable numeric validation
+                                        currencySymbol="%"
+                                        maxLength={ 4 }  // Maximum length of the entire input, including decimals
+                                        decimalPlaces={ 2 }
                                     />
+
                                 </div>
                                 <div className="col-md-6">
-                                    <ReusableInput
+                                    <ReusableNumericInput
                                         label="Premium"
-                                        id="clientName"
-                                        type="text"
-                                        placeholder="Premium"
+                                        id="PREMIUM"
+                                        type="text"  // Can use "number" too
+                                        placeholder="Enter your Premium"
                                         className="w-100"
+                                        numeric={ true }  // Enable numeric validation
+                                        currencySymbol=""
+                                        maxLength={ 4 }  // Maximum length of the entire input, including decimals
+                                        decimalPlaces={ 2 }
+                                        isDisabled={ true }
                                     />
+
                                 </div>
+
+
                             </div>
+
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-secondary" onClick={ handleClose }>
@@ -107,7 +132,7 @@ const RiskItemDetailsModal = ({ show, handleClose, onSubmit }) => {
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 

@@ -2,6 +2,8 @@
 import axios from 'axios';
 import { signup } from '../../pages/InsuranceQuote/services/services';
 import { SIGN_UP_FAILURE, SIGN_UP_REQUEST, SIGN_UP_SUCCESS } from './profileActiontypes';
+import { setLoading } from "../insuranceQuote/appReducer";
+
 
 // Action to handle user sign-up
 // export const signUpUser = (formData) => {
@@ -28,6 +30,8 @@ import { SIGN_UP_FAILURE, SIGN_UP_REQUEST, SIGN_UP_SUCCESS } from './profileActi
 export const signUpUser = (payload) => {
     return async (dispatch) => {
         try {
+            dispatch(setLoading(true));
+
             dispatch({ type: SIGN_UP_REQUEST });
 
             // Simulate a network request using setTimeout
@@ -49,6 +53,7 @@ export const signUpUser = (payload) => {
                 type: SIGN_UP_SUCCESS,
                 payload: mockResponse,
             });
+            dispatch(setLoading(false));
         } catch (error) {
             // Simulate an error response
             dispatch({

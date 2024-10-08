@@ -5,7 +5,7 @@ import QuoteTable from "./QuoteTable";
 import Sidebar from "../../components/Navigation/Sidebar";
 import Topbar from "../../components/Navigation/Topbar";
 
-const InsuranceMainForm = () => {
+const InsuranceMainForm = (props) => {
     return (
         <>
             <div id="wrapper">

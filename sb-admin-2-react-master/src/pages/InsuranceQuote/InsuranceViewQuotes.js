@@ -36,7 +36,7 @@ const sampleQuotes = [
     },
 ];
 
-const InsuranceViewQuotes = () => {
+const InsuranceViewQuotes = (props) => {
     const [quotes, setQuotes] = useState([]);
 
     // Simulate fetching quotes from an API
