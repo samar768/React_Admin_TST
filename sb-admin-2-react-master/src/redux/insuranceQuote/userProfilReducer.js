@@ -14,13 +14,12 @@ export const userProfilReducer = (state = initialState, action) => {
             return {
                 ...state,
                 loading: true,
-                error: action.payload
             };
         case SIGN_UP_SUCCESS:
             return {
                 ...state,
                 loading: false,
-                error: action.payload
+                profileData: action.payload
             };
         case SIGN_UP_FAILURE:
             return {
